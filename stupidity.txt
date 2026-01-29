@@ -1,60 +1,36 @@
-6:45:33 PM: Executing 'build'…
+6:56:35 PM: Executing 'build'…
 
 
 > Configure project :
 Fabric Loom: 1.8.11
 
 > Task :compileJava
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:7: error: package net.minecraft.util.registry does not exist
-import net.minecraft.util.registry.Registry;
-                                  ^
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\LogManager.java:5: error: package net.minecraft.util.registry does not exist
-import net.minecraft.util.registry.Registry;
-                                  ^
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:9: error: package net.minecraft.util.registry does not exist
-import net.minecraft.util.registry.Registry;
-                                  ^
 C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:107: error: cannot find symbol
     public void processFoundBlock(BlockPos pos, BlockState state) {
                                   ^
   symbol:   class BlockPos
   location: class BlockStore
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\utils\BlockUtils.java:6: error: package net.minecraft.util.registry does not exist
-import net.minecraft.util.registry.Registry;
-                                  ^
-5 errors
+1 error
+
+> Task :compileJava FAILED
+[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/NeoporiumScanner1.2/build/reports/problems/problems-report.html
+1 actionable task: 1 executed
 
 FAILURE: Build failed with an exception.
 
 * What went wrong:
 Execution failed for task ':compileJava'.
 > Compilation failed; see the compiler output below.
-  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:7: error: package net.minecraft.util.registry does not exist
-  import net.minecraft.util.registry.Registry;
-                                    ^
-  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\LogManager.java:5: error: package net.minecraft.util.registry does not exist
-  import net.minecraft.util.registry.Registry;
-                                    ^
-  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:9: error: package net.minecraft.util.registry does not exist
-  import net.minecraft.util.registry.Registry;
-                                    ^
-  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\utils\BlockUtils.java:6: error: package net.minecraft.util.registry does not exist
-  import net.minecraft.util.registry.Registry;
-                                    ^
   C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:107: error: cannot find symbol
       public void processFoundBlock(BlockPos pos, BlockState state) {
                                     ^
     symbol:   class BlockPos
     location: class BlockStore
-  5 errors
+  1 error
 
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
 > Run with --scan to get full insights.
 
-BUILD FAILED in 11s
-
-> Task :compileJava FAILED
-[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/NeoporiumScanner1.2/build/reports/problems/problems-report.html
-1 actionable task: 1 executed
-6:45:46 PM: Execution finished 'build'.
+BUILD FAILED in 3s
+6:56:39 PM: Execution finished 'build'.
