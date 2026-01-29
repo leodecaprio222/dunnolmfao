@@ -1,21 +1,38 @@
+8:02:50 PM: Executing 'build'…
+
+
+> Configure project :
+Fabric Loom: 1.8.11
+
 > Task :compileJava
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:30: error: variable toggleXrayButton might not have been initialized
-                    toggleXrayButton.setMessage(Text.literal(StateSettings.isXrayEnabled() ? "Disable X-Ray" : "Enable X-Ray"));
-                    ^
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:40: error: variable scanButton might not have been initialized
-                    scanButton.setMessage(Text.literal(!wasActive ? "Stop Scanning" : "Start Scanning"));
-                    ^
 C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:31: error: invalid method reference
-        RenderSystem.setShader(GameRenderer::getPositionProgram);
+        RenderSystem.setShader(GameRenderer::getRenderTypeLinesProgram);
                                ^
   cannot find symbol
-    symbol:   method getPositionProgram()
+    symbol:   method getRenderTypeLinesProgram()
     location: class GameRenderer
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:51: error: cannot find symbol
-        BufferRenderer.drawWithGlobalProgram(buffer.endOrDiscardEmpty());
-                                                   ^
-  symbol:   method endOrDiscardEmpty()
-  location: variable buffer of type BufferBuilder
-4 errors
+1 error
 
 > Task :compileJava FAILED
+[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/NeoporiumScanner1.2/build/reports/problems/problems-report.html
+1 actionable task: 1 executed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:31: error: invalid method reference
+          RenderSystem.setShader(GameRenderer::getRenderTypeLinesProgram);
+                                 ^
+    cannot find symbol
+      symbol:   method getRenderTypeLinesProgram()
+      location: class GameRenderer
+  1 error
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 3s
+8:02:54 PM: Execution finished 'build'.
