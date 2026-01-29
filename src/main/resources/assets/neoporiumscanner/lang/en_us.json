@@ -1,0 +1,8 @@
+{
+  "key.neoporiumscanner.config": "Open Neoporium Scanner Config",
+  "key.neoporiumscanner.toggle": "Toggle X-Ray",
+  "category.neoporiumscanner.main": "Neoporium Scanner",
+
+  "text.neoporiumscanner.enabled": "Enabled",
+  "text.neoporiumscanner.disabled": "Disabled"
+}

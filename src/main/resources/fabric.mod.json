@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "neoporium-scanner",
+  "version": "1.0.0",
+  "name": "Neoporium Scanner",
+  "description": "Advanced XRay and ESP block scanner with GUI and commands",
+  "authors": ["YourName"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/neoporium-scanner/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": ["com.emperium.neoporiumscanner.NeoporiumScanner"],
+    "client": ["com.emperium.neoporiumscanner.NeoporiumScannerClient"],
+    "modmenu": ["com.emperium.neoporiumscanner.config.ModMenuIntegration"]
+  },
+  "mixins": [
+    "neoporium-scanner.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric": "*",
+    "minecraft": "1.20.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}
