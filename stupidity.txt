@@ -1,4 +1,4 @@
-7:05:19 PM: Executing 'build'…
+7:23:20 PM: Executing 'build'…
 
 
 > Configure project :
@@ -12,7 +12,7 @@ C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiums
       required: no arguments
       found:    Screen
       reason: actual and formal argument lists differ in length
-C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:29: error: cannot find symbol
+C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:30: error: cannot find symbol
         String blockId = Registry.BLOCK.getId(block).toString();
                                  ^
   symbol:   variable BLOCK
@@ -23,8 +23,8 @@ C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiums
   symbol:   variable BLOCK
   location: interface Registry
 C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\ScanController.java:68: error: method getTopY in class World cannot be applied to given types;
-            for (int y = world.getBottomY(); y < world.getTopY(); y++) {
-                                                      ^
+            for (int y = world.getBottomY(); y <= world.getTopY(); y++) {
+                                                       ^
   required: Type,int,int
   found:    no arguments
   reason: actual and formal argument lists differ in length
@@ -49,8 +49,8 @@ C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiums
   symbol:   variable LogManager
   location: class BlockStore
 C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\ScanTask.java:39: error: method getTopY in class World cannot be applied to given types;
-            for (int y = world.getBottomY(); y < world.getTopY(); y++) {
-                                                      ^
+            for (int y = world.getBottomY(); y <= world.getTopY(); y++) {
+                                                       ^
   required: Type,int,int
   found:    no arguments
   reason: actual and formal argument lists differ in length
@@ -251,14 +251,14 @@ Execution failed for task ':compileJava'.
     symbol:   method draw()
     location: variable tessellator of type Tessellator
   C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\ScanController.java:68: error: method getTopY in class World cannot be applied to given types;
-              for (int y = world.getBottomY(); y < world.getTopY(); y++) {
-                                                        ^
+              for (int y = world.getBottomY(); y <= world.getTopY(); y++) {
+                                                         ^
     required: Type,int,int
     found:    no arguments
     reason: actual and formal argument lists differ in length
   C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\ScanTask.java:39: error: method getTopY in class World cannot be applied to given types;
-              for (int y = world.getBottomY(); y < world.getTopY(); y++) {
-                                                        ^
+              for (int y = world.getBottomY(); y <= world.getTopY(); y++) {
+                                                         ^
     required: Type,int,int
     found:    no arguments
     reason: actual and formal argument lists differ in length
@@ -298,7 +298,7 @@ Execution failed for task ':compileJava'.
     required: String,String
     found:    String
     reason: actual and formal argument lists differ in length
-  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:29: error: cannot find symbol
+  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:30: error: cannot find symbol
           String blockId = Registry.BLOCK.getId(block).toString();
                                    ^
     symbol:   variable BLOCK
@@ -317,10 +317,6 @@ Execution failed for task ':compileJava'.
           String blockId = Registry.BLOCK.getId(state.getBlock()).toString();
                                    ^
     symbol:   variable BLOCK
-
-> Task :compileJava FAILED
-[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/NeoporiumScanner1.2/build/reports/problems/problems-report.html
-1 actionable task: 1 executed
     location: interface Registry
   C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:108: error: cannot find symbol
           String blockId = Registry.BLOCK.getId(state.getBlock()).toString();
@@ -350,9 +346,13 @@ Execution failed for task ':compileJava'.
   Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
   30 errors
 
+> Task :compileJava FAILED
+[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/NeoporiumScanner1.2/build/reports/problems/problems-report.html
+1 actionable task: 1 executed
+
 * Try:
 > Check your code and dependencies to fix the compilation error(s)
 > Run with --scan to get full insights.
 
-BUILD FAILED in 4s
-7:05:23 PM: Execution finished 'build'.
+BUILD FAILED in 3s
+7:23:24 PM: Execution finished 'build'.
