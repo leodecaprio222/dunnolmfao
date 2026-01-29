@@ -1,13 +1,19 @@
-Build file 'C:\Users\Zenny\Desktop\NeoporiumScanner1.2\build.gradle' line: 2
+A problem occurred configuring root project 'neoporium-scanner'.
+> Could not resolve all files for configuration ':modImplementation'.
+   > Could not find net.fabricmc.fabric-api:fabric-api:0.119.4+1.21.4  # YOUR VERSION.
+     Searched in the following locations:
+       - file:/C:/Users/Zenny/Desktop/NeoporiumScanner1.2/.gradle/loom-cache/remapped_mods/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.pom
+       - file:/C:/Users/Zenny/.gradle/caches/fabric-loom/minecraftMaven/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.pom
+       - file:/C:/Users/Zenny/Desktop/NeoporiumScanner1.2/.gradle/loom-cache/minecraftMaven/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.pom
+       - https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.pom
+       - https://libraries.minecraft.net/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.pom
+       - https://libraries.minecraft.net/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.jar
+       - https://repo.maven.apache.org/maven2/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.jar
+       - https://repo.maven.apache.org/maven2/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.pom
+       - https://maven.terraformersmc.com/releases/net/fabricmc/fabric-api/fabric-api/0.119.4+1.21.4%20%20%23%20YOUR%20VERSION/fabric-api-0.119.4+1.21.4%20%20%23%20YOUR%20VERSION.pom
+     Required by:
+         root project :
 
-An exception occurred applying plugin request [id: 'fabric-loom', version: '1.7-SNAPSHOT']
-> Failed to apply plugin 'fabric-loom'.
-   > Could not create an instance of type net.fabricmc.loom.extension.LoomGradleExtensionImpl.
-      > Could not create an instance of type net.fabricmc.loom.extension.LoomProblemReporter.
-         > 'org.gradle.api.problems.ProblemReporter org.gradle.api.problems.Problems.forNamespace(java.lang.String)'
+Possible solution:
+ - Declare repository providing the artifact, see the documentation at https://docs.gradle.org/current/userguide/declaring_repositories.html
 
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
