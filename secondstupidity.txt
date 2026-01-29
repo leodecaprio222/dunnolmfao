@@ -1,109 +1,415 @@
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\AdvancedScanner.java:6: error: cannot find symbol
-import net.minecraft.client.Minecraft;
+> Task :compileJava
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\cache\BlockSearchCache.java:69: error: cannot find symbol
+                Optional<Block> block = Registries.BLOCK.getOrEmpty(id);
+                                                        ^
+  symbol:   method getOrEmpty(Identifier)
+  location: variable BLOCK of type DefaultedRegistry<Block>
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:33: error: cannot find symbol
+            return Registries.BLOCK.getOrEmpty(id).isPresent();
+                                   ^
+  symbol:   method getOrEmpty(Identifier)
+  location: variable BLOCK of type DefaultedRegistry<Block>
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:66: error: cannot find symbol
+            Optional<Block> block = Registries.BLOCK.getOrEmpty(id);
+                                                    ^
+  symbol:   method getOrEmpty(Identifier)
+  location: variable BLOCK of type DefaultedRegistry<Block>
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\LogManager.java:188: error: cannot find symbol
+                Files.copy(source.toPath(), dest.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                ^
+  symbol:   variable Files
+  location: class LogManager
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:48: error: non-static method scanCurrentChunk(World,PlayerEntity) cannot be referenced from a static context
+                AdvancedScanner.scanCurrentChunk(client.world, player);
+                               ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:62: error: non-static method scanCurrentChunk(World,PlayerEntity) cannot be referenced from a static context
+                AdvancedScanner.scanCurrentChunk(client.world, client.player);
+                               ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:36: error: non-static method scanCurrentChunk(World,PlayerEntity) cannot be referenced from a static context
+                    AdvancedScanner.scanCurrentChunk(client.world, client.player);
+                                   ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:50: error: non-static method cycleNextProfile() cannot be referenced from a static context
+                AdvancedScanner.cycleNextProfile();
+                               ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:51: error: cannot find symbol
+                ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                ^
+  symbol:   class ScanProfile
+  location: class KeyInputHandler
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:51: error: non-static method getCurrentProfile() cannot be referenced from a static context
+                ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                                     ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\WorldRenderHandler.java:26: error: cannot find symbol
+                context.tickDelta()
+                       ^
+  symbol:   method tickDelta()
+  location: variable context of type WorldRenderContext
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:41: error: non-static method getCurrentProfile() cannot be referenced from a static context
+        ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                             ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:62: error: non-static method getProfiles() cannot be referenced from a static context
+        List<String> profileNames = new ArrayList<>(AdvancedScanner.getProfiles().keySet());
+                                                                   ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:188: error: non-static method getCurrentProfile() cannot be referenced from a static context
+                        this.client.setScreen(new BlockSelectionScreen(AdvancedScanner.getCurrentProfile()));
+                                                                                      ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:288: error: non-static method setCurrentProfile(String) cannot be referenced from a static context
+        AdvancedScanner.setCurrentProfile(selectedProfileName);
+                       ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:289: error: non-static method getCurrentProfile() cannot be referenced from a static context
+        ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                             ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:345: error: non-static method scanCurrentChunk(World,PlayerEntity) cannot be referenced from a static context
+            AdvancedScanner.scanCurrentChunk(this.client.world, this.client.player);
                            ^
-  symbol:   class Minecraft
-  location: package net.minecraft.client
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanController.java:3: error: cannot find symbol
-import net.minecraft.client.Minecraft;
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:354: error: non-static method scanArea(World,PlayerEntity) cannot be referenced from a static context
+            AdvancedScanner.scanArea(this.client.world, this.client.player);
                            ^
-  symbol:   class Minecraft
-  location: package net.minecraft.client
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanTask.java:3: error: cannot find symbol
-import net.minecraft.client.Minecraft;
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:360: error: non-static method clearScanResults() cannot be referenced from a static context
+        AdvancedScanner.clearScanResults();
+                       ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:395: error: non-static method getCurrentProfile() cannot be referenced from a static context
+        ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                             ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:417: error: non-static method getCurrentProfile() cannot be referenced from a static context
+            ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                                 ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:420: error: non-static method addProfile(ScanProfile) cannot be referenced from a static context
+                AdvancedScanner.addProfile(profile);
+                               ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:457: error: non-static method saveProfile(String) cannot be referenced from a static context
+            AdvancedScanner.saveProfile(profile.name);
                            ^
-  symbol:   class Minecraft
-  location: package net.minecraft.client
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:8: error: cannot find symbol
-import net.minecraft.client.Minecraft;
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:521: error: non-static method getCurrentProfile() cannot be referenced from a static context
+        ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                             ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\AdvancedGuiScreen.java:539: error: non-static method getFoundBlocks() cannot be referenced from a static context
+            Map<String, List<BlockPos>> foundBlocks = AdvancedScanner.getFoundBlocks();
+                                                                     ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\BlockSelectionScreen.java:319: error: non-static method saveProfile(String) cannot be referenced from a static context
+        AdvancedScanner.saveProfile(currentProfile.name);
+                       ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:89: error: non-static method getCurrentProfile() cannot be referenced from a static context
+        ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                             ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:99: error: non-static method scanCurrentChunk(World,PlayerEntity) cannot be referenced from a static context
+            AdvancedScanner.scanCurrentChunk(this.client.world, this.client.player);
                            ^
-  symbol:   class Minecraft
-  location: package net.minecraft.client
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:16: error: cannot find symbol
-    public static void onClientTick(Minecraft client) {
-                                    ^
-  symbol:   class Minecraft
-  location: class ClientTickHandler
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:43: error: cannot find symbol
-    private static void handleAutoScan(Minecraft client) {
-                                       ^
-  symbol:   class Minecraft
-  location: class ClientTickHandler
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:11: error: cannot find symbol
-import net.minecraft.client.Minecraft;
-                           ^
-  symbol:   class Minecraft
-  location: package net.minecraft.client
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\storage\Store.java:7: error: cannot find symbol
-import net.minecraft.client.Minecraft;
-                           ^
-  symbol:   class Minecraft
-  location: package net.minecraft.client
-C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:6: error: cannot find symbol
-import net.minecraft.client.Minecraft;
-                           ^
-  symbol:   class Minecraft
-  location: package net.minecraft.client
-9 errors
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:130: error: non-static method cycleNextProfile() cannot be referenced from a static context
+        AdvancedScanner.cycleNextProfile();
+                       ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:133: error: non-static method getCurrentProfile() cannot be referenced from a static context
+            ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                                 ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:191: error: non-static method getCurrentProfile() cannot be referenced from a static context
+        ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                                             ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\gui\QuickAccessScreen.java:214: error: non-static method getFoundBlocks() cannot be referenced from a static context
+        Map<String, java.util.List<net.minecraft.util.math.BlockPos>> foundBlocks = AdvancedScanner.getFoundBlocks();
+                                                                                                   ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\mixins\MixinClientPlayNetworkHandler.java:25: error: cannot find symbol
+        ScanController.getInstance().onChunkUnloaded(packet.getChunkX(), packet.getChunkZ());
+                                                           ^
+  symbol:   method getChunkX()
+  location: variable packet of type UnloadChunkS2CPacket
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\mixins\MixinClientPlayNetworkHandler.java:25: error: cannot find symbol
+        ScanController.getInstance().onChunkUnloaded(packet.getChunkX(), packet.getChunkZ());
+                                                                               ^
+  symbol:   method getChunkZ()
+  location: variable packet of type UnloadChunkS2CPacket
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\storage\SettingsStore.java:24: error: StateSettings() has private access in StateSettings
+        return new StateSettings();
+               ^
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\utils\BlockUtils.java:139: error: method getTopY in class World cannot be applied to given types;
+                for (int y = world.getBottomY(); y <= world.getTopY(); y++) {
+                                                           ^
+  required: Type,int,int
+  found:    no arguments
+  reason: actual and formal argument lists differ in length
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:68: error: cannot find symbol
+        BufferBuilder buffer = tessellator.getBuffer();
+                                          ^
+  symbol:   method getBuffer()
+  location: variable tessellator of type Tessellator
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:75: error: invalid method reference
+        RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+                               ^
+  cannot find symbol
+    symbol:   method getPositionColorProgram()
+    location: class GameRenderer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:81: error: cannot find symbol
+        buffer.begin(VertexFormat.DrawMode.DEBUG_LINES, VertexFormats.POSITION_COLOR);
+              ^
+  symbol:   method begin(DrawMode,VertexFormat)
+  location: variable buffer of type BufferBuilder
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:122: error: cannot find symbol
+        tessellator.draw();
+                   ^
+  symbol:   method draw()
+  location: variable tessellator of type Tessellator
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:147: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:148: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:150: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:151: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:153: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:154: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:156: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:157: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:160: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:161: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:163: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:164: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:166: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:167: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:169: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:170: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:173: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:174: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:176: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:177: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z1).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:179: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:180: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:182: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\RenderOutlines.java:183: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z2).color(r, g, b, alpha).next();
+                                                               ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:127: error: invalid method reference
+        RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+                               ^
+  cannot find symbol
+    symbol:   method getPositionColorProgram()
+    location: class GameRenderer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:130: error: cannot find symbol
+        BufferBuilder buffer = tessellator.getBuffer();
+                                          ^
+  symbol:   method getBuffer()
+  location: variable tessellator of type Tessellator
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:175: error: cannot find symbol
+        tessellator.draw();
+                   ^
+  symbol:   method draw()
+  location: variable tessellator of type Tessellator
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:194: error: cannot find symbol
+        buffer.begin(VertexFormat.DrawMode.DEBUG_LINES, VertexFormats.POSITION_COLOR);
+              ^
+  symbol:   method begin(DrawMode,VertexFormat)
+  location: variable buffer of type BufferBuilder
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:200: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:201: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:203: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:204: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:206: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:207: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:209: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:210: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:213: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:214: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:216: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:217: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:219: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:220: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:222: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:223: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:226: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:227: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:229: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:230: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z1).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:232: error: cannot find symbol
+        buffer.vertex(matrix, x2, y1, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:233: error: cannot find symbol
+        buffer.vertex(matrix, x2, y2, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:235: error: cannot find symbol
+        buffer.vertex(matrix, x1, y1, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:236: error: cannot find symbol
+        buffer.vertex(matrix, x1, y2, z2).color(r, g, b, a).next();
+                                                           ^
+  symbol:   method next()
+  location: interface VertexConsumer
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+92 errors
 
 > Task :compileJava FAILED
-[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/AdvancedNeoporiumScanner/build/reports/problems/problems-report.html
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':compileJava'.
-> Compilation failed; see the compiler output below.
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\AdvancedScanner.java:6: error: cannot find symbol
-  import net.minecraft.client.Minecraft;
-                             ^
-    symbol:   class Minecraft
-    location: package net.minecraft.client
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanController.java:3: error: cannot find symbol
-  import net.minecraft.client.Minecraft;
-                             ^
-    symbol:   class Minecraft
-    location: package net.minecraft.client
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanTask.java:3: error: cannot find symbol
-  import net.minecraft.client.Minecraft;
-                             ^
-    symbol:   class Minecraft
-    location: package net.minecraft.client
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:8: error: cannot find symbol
-  import net.minecraft.client.Minecraft;
-                             ^
-    symbol:   class Minecraft
-    location: package net.minecraft.client
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:16: error: cannot find symbol
-      public static void onClientTick(Minecraft client) {
-                                      ^
-    symbol:   class Minecraft
-    location: class ClientTickHandler
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:43: error: cannot find symbol
-      private static void handleAutoScan(Minecraft client) {
-                                         ^
-    symbol:   class Minecraft
-    location: class ClientTickHandler
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:11: error: cannot find symbol
-  import net.minecraft.client.Minecraft;
-                             ^
-    symbol:   class Minecraft
-    location: package net.minecraft.client
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\storage\Store.java:7: error: cannot find symbol
-  import net.minecraft.client.Minecraft;
-                             ^
-    symbol:   class Minecraft
-    location: package net.minecraft.client
-  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:6: error: cannot find symbol
-  import net.minecraft.client.Minecraft;
-                             ^
-    symbol:   class Minecraft
-    location: package net.minecraft.client
-  9 errors
-
-* Try:
-> Check your code and dependencies to fix the compilation error(s)
-> Run with --scan to get full insights.
-
-BUILD FAILED in 15s
-1 actionable task: 1 executed
-4:19:12 PM: Execution finished 'build'.
