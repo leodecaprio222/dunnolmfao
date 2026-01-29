@@ -1,50 +1,60 @@
-neoporiumscanner/
-├── src/main/java/com/emperium/neoporiumscanner/
-│   ├── NeoporiumScanner.java              # done
-│   ├── config/
-│   │   ├── AdvancedConfig.java            # done
-│   │   ├── StateSettings.java             # done
-│   │   └── ConfigManager.java             # not added yet
-│   ├── core/
-│   │   ├── AdvancedScanner.java           # done
-│   │   ├── ScanProfile.java              # done
-│   │   ├── ScanController.java           # done
-│   │   ├── ScanTask.java                 # not added yet
-│   │   ├── LogManager.java               # done
-│   │   └── BlockValidator.java           # not added
-│   ├── gui/
-│   │   ├── AdvancedGuiScreen.java        # done
-│   │   ├── BlockSelectionScreen.java     # not added
-│   │   ├── XRayConfigScreen.java         # not added
-│   │   ├── LogManagerScreen.java         # not added
-│   │   └── QuickAccessScreen.java        # not added
-│   ├── xray/
-│   │   ├── XRayRenderer.java             # done
-│   │   ├── RenderOutlines.java           # not added
-│   │   ├── BasicColor.java               # done
-│   │   └── XRayCache.java                # not added
-│   ├── storage/
-│   │   ├── BlockStore.java               # not added
-│   │   ├── SettingsStore.java            # not added
-│   │   ├── ProfileStore.java             # not added
-│   │   └── Store.java                    # not added
-│   ├── cache/
-│   │   ├── BlockSearchCache.java         # not added
-│   │   └── ChunkCache.java               # not added
-│   ├── mixins/
-│   │   └── MixinClientPlayNetworkHandler.java # not added
-│   ├── events/
-│   │   ├── ClientTickHandler.java        # not added
-│   │   ├── WorldRenderHandler.java       # not added
-│   │   └── KeyInputHandler.java          # not added
-│   └── utils/
-│       ├── BlockUtils.java               # not added
-│       ├── PositionUtils.java            # not added
-│       ├── ColorUtils.java               # not added
-│       └── FileUtils.java                # not added
-├── src/main/resources/
-│   ├── fabric.mod.json                   # done
-│   ├── neoporiumscanner.mixins.json      # done
-│   └── assets/neoporiumscanner/
-│       └── lang/
-│           └── en_us.json                # done
+6:45:33 PM: Executing 'build'…
+
+
+> Configure project :
+Fabric Loom: 1.8.11
+
+> Task :compileJava
+C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:7: error: package net.minecraft.util.registry does not exist
+import net.minecraft.util.registry.Registry;
+                                  ^
+C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\LogManager.java:5: error: package net.minecraft.util.registry does not exist
+import net.minecraft.util.registry.Registry;
+                                  ^
+C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:9: error: package net.minecraft.util.registry does not exist
+import net.minecraft.util.registry.Registry;
+                                  ^
+C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:107: error: cannot find symbol
+    public void processFoundBlock(BlockPos pos, BlockState state) {
+                                  ^
+  symbol:   class BlockPos
+  location: class BlockStore
+C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\utils\BlockUtils.java:6: error: package net.minecraft.util.registry does not exist
+import net.minecraft.util.registry.Registry;
+                                  ^
+5 errors
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\BlockValidator.java:7: error: package net.minecraft.util.registry does not exist
+  import net.minecraft.util.registry.Registry;
+                                    ^
+  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\core\LogManager.java:5: error: package net.minecraft.util.registry does not exist
+  import net.minecraft.util.registry.Registry;
+                                    ^
+  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:9: error: package net.minecraft.util.registry does not exist
+  import net.minecraft.util.registry.Registry;
+                                    ^
+  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\utils\BlockUtils.java:6: error: package net.minecraft.util.registry does not exist
+  import net.minecraft.util.registry.Registry;
+                                    ^
+  C:\Users\Zenny\Desktop\NeoporiumScanner1.2\src\main\java\com\emperium\neoporiumscanner\storage\BlockStore.java:107: error: cannot find symbol
+      public void processFoundBlock(BlockPos pos, BlockState state) {
+                                    ^
+    symbol:   class BlockPos
+    location: class BlockStore
+  5 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 11s
+
+> Task :compileJava FAILED
+[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/NeoporiumScanner1.2/build/reports/problems/problems-report.html
+1 actionable task: 1 executed
+6:45:46 PM: Execution finished 'build'.
