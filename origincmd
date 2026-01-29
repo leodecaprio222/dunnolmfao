@@ -1,0 +1,230 @@
+package com.emperium.neoporiumscanner;
+
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.minecraft.text.Text;
+
+public class AdvancedCommands {
+    public static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher) {
+        dispatcher.register(ClientCommandManager.literal("neoporium")
+            .executes(context -> {
+                context.getSource().sendFeedback(Text.literal("""
+                    §6=== Neoporium Scanner ===
+                    §eKeybinds: §6B§e=Scan, §6G§e=GUI, §6H§e=ESP, §6P§e=Cycle Profile
+                    
+                    §6Original Commands:
+                    §e/neoporium scan §7- Manual scan
+                    §e/neoporium yrange <min> <max> §7- Set Y range
+                    §e/neoporium ylevel <y> §7- Set single Y level
+                    §e/neoporium radius <0-32> §7- 0=player's chunk only, 1=3x3, 2=5x5, etc.
+                    §e/neoporium chunks <1-1024> §7- Set exact number of chunks to scan
+                    §e/neoporium block <block> §7- Set target block
+                    §e/neoporium clear §7- Clear all memory
+                    §e/neoporium rescan §7- Rescan same area
+                    §e/neoporium stats §7- Show statistics
+                    §e/neoporium testesp §7- Test WallRay ESP
+                    
+                    §6Advanced Commands:
+                    §e/neoporium profile list §7- List profiles
+                    §e/neoporium profile set <name> §7- Switch profile
+                    §e/neoporium auto §7- Toggle auto-scan
+                    """));
+                return 1;
+            })
+            
+            .then(ClientCommandManager.literal("scan")
+                .executes(context -> {
+                    if (context.getSource().getPlayer() != null && context.getSource().getWorld() != null) {
+                        context.getSource().sendFeedback(Text.literal("§6[Neoporium] Scanning..."));
+                        AdvancedScanner.scanArea(
+                            context.getSource().getWorld(),
+                            context.getSource().getPlayer()
+                        );
+                    }
+                    return 1;
+                })
+            )
+            
+            .then(ClientCommandManager.literal("yrange")
+                .then(ClientCommandManager.argument("min", IntegerArgumentType.integer(-64, 320))
+                    .then(ClientCommandManager.argument("max", IntegerArgumentType.integer(-64, 320))
+                        .executes(context -> {
+                            int min = IntegerArgumentType.getInteger(context, "min");
+                            int max = IntegerArgumentType.getInteger(context, "max");
+                            AdvancedScanner.ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                            profile.minY = min;
+                            profile.maxY = max;
+                            profile.useYRange = true;
+                            context.getSource().sendFeedback(Text.literal(
+                                String.format("§a[Neoporium] Y range: §e%d to %d", min, max)
+                            ));
+                            return 1;
+                        })
+                    )
+                )
+            )
+            
+            .then(ClientCommandManager.literal("ylevel")
+                .then(ClientCommandManager.argument("y", IntegerArgumentType.integer(-64, 320))
+                    .executes(context -> {
+                        int y = IntegerArgumentType.getInteger(context, "y");
+                        AdvancedScanner.ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                        profile.minY = y;
+                        profile.maxY = y;
+                        profile.useYRange = false;
+                        context.getSource().sendFeedback(Text.literal(
+                                String.format("§a[Neoporium] Single Y: §e%d", y)
+                        ));
+                        return 1;
+                    })
+                )
+            )
+            
+            .then(ClientCommandManager.literal("radius")
+                .then(ClientCommandManager.argument("radius", IntegerArgumentType.integer(0, 32))
+                    .executes(context -> {
+                        int radius = IntegerArgumentType.getInteger(context, "radius");
+                        AdvancedScanner.getCurrentProfile().scanRadius = radius;
+                        
+                        String description;
+                        if (radius == 0) {
+                            description = "player's chunk only (1 chunk)";
+                        } else {
+                            int chunks = (radius * 2 + 1) * (radius * 2 + 1);
+                            description = radius + " (will scan " + chunks + " chunks in " + (radius * 2 + 1) + "x" + (radius * 2 + 1) + " area)";
+                        }
+                        
+                        context.getSource().sendFeedback(Text.literal(
+                            String.format("§a[Neoporium] Radius set to §e%s", description)
+                        ));
+                        return 1;
+                    })
+                )
+            )
+            
+            .then(ClientCommandManager.literal("chunks")
+                .then(ClientCommandManager.argument("chunks", IntegerArgumentType.integer(1, 1024))
+                    .executes(context -> {
+                        int chunks = IntegerArgumentType.getInteger(context, "chunks");
+                        AdvancedScanner.getCurrentProfile().targetChunks = chunks;
+                        context.getSource().sendFeedback(Text.literal(
+                            String.format("§a[Neoporium] Target chunks set to §e%d", chunks)
+                        ));
+                        return 1;
+                    })
+                )
+            )
+            
+            .then(ClientCommandManager.literal("block")
+                .then(ClientCommandManager.argument("block", StringArgumentType.string())
+                    .executes(context -> {
+                        String block = StringArgumentType.getString(context, "block");
+                        if (!block.contains(":")) block = "minecraft:" + block;
+                        
+                        AdvancedScanner.ScanProfile profile = AdvancedScanner.getCurrentProfile();
+                        profile.targetBlocks.clear();
+                        profile.targetBlocks.add(block);
+                        
+                        context.getSource().sendFeedback(Text.literal(
+                            String.format("§a[Neoporium] Target: §e%s", 
+                                block.replace("minecraft:", ""))
+                        ));
+                        return 1;
+                    })
+                )
+            )
+            
+            .then(ClientCommandManager.literal("rescan")
+                .executes(context -> {
+                    AdvancedScanner.clearScanResults();
+                    if (context.getSource().getPlayer() != null && context.getSource().getWorld() != null) {
+                        context.getSource().sendFeedback(Text.literal("§6[Neoporium] Rescanning..."));
+                        AdvancedScanner.scanArea(
+                            context.getSource().getWorld(),
+                            context.getSource().getPlayer()
+                        );
+                    }
+                    return 1;
+                })
+            )
+            
+            .then(ClientCommandManager.literal("clear")
+                .executes(context -> {
+                    AdvancedScanner.clearScanResults();
+                    context.getSource().sendFeedback(Text.literal("§a[Neoporium] Memory cleared"));
+                    return 1;
+                })
+            )
+            
+            .then(ClientCommandManager.literal("stats")
+                .executes(context -> {
+                    context.getSource().sendFeedback(Text.literal(
+                        "§6[Neoporium] " + AdvancedScanner.getStats()
+                    ));
+                    return 1;
+                })
+            )
+            
+            .then(ClientCommandManager.literal("testesp")
+                .executes(context -> {
+                    context.getSource().sendFeedback(Text.literal("§6[Neoporium] Running ESP test..."));
+                    
+                    if (context.getSource().getPlayer() != null) {
+                        WallRayRenderer.testESP();
+                        context.getSource().sendFeedback(Text.literal("§7Look for a 3x3x3 cube of red boxes!"));
+                    }
+                    return 1;
+                })
+            )
+            
+            .then(ClientCommandManager.literal("profile")
+                .then(ClientCommandManager.literal("list")
+                    .executes(context -> {
+                        StringBuilder profiles = new StringBuilder("§6[Neoporium] Profiles:\n");
+                        for (String name : AdvancedScanner.getProfiles().keySet()) {
+                            profiles.append("§e- ").append(name).append("\n");
+                        }
+                        context.getSource().sendFeedback(Text.literal(profiles.toString()));
+                        return 1;
+                    })
+                )
+                .then(ClientCommandManager.literal("set")
+                    .then(ClientCommandManager.argument("name", StringArgumentType.string())
+                        .executes(context -> {
+                            String name = StringArgumentType.getString(context, "name");
+                            AdvancedScanner.setCurrentProfile(name);
+                            context.getSource().sendFeedback(Text.literal(
+                                "§a[Neoporium] Switched to profile: §e" + name
+                            ));
+                            return 1;
+                        })
+                    )
+                )
+            )
+            
+            .then(ClientCommandManager.literal("auto")
+                .executes(context -> {
+                    AdvancedConfig config = AdvancedConfig.get();
+                    config.autoScan = !config.autoScan;
+                    AdvancedConfig.save();
+                    
+                    String status = config.autoScan ? "§aENABLED" : "§cDISABLED";
+                    context.getSource().sendFeedback(Text.literal("§6[Neoporium] Auto-scan: " + status));
+                    return 1;
+                })
+            )
+            
+            .then(ClientCommandManager.literal("esp")
+                .executes(context -> {
+                    WallRayRenderer.toggleESP();
+                    String status = WallRayRenderer.isESPEnabled() ? "§aENABLED" : "§cDISABLED";
+                    context.getSource().sendFeedback(Text.literal("§6[Neoporium] ESP: " + status));
+                    return 1;
+                })
+            )
+        );
+    }
+}
