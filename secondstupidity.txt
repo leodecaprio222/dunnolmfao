@@ -1,0 +1,109 @@
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\AdvancedScanner.java:6: error: cannot find symbol
+import net.minecraft.client.Minecraft;
+                           ^
+  symbol:   class Minecraft
+  location: package net.minecraft.client
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanController.java:3: error: cannot find symbol
+import net.minecraft.client.Minecraft;
+                           ^
+  symbol:   class Minecraft
+  location: package net.minecraft.client
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanTask.java:3: error: cannot find symbol
+import net.minecraft.client.Minecraft;
+                           ^
+  symbol:   class Minecraft
+  location: package net.minecraft.client
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:8: error: cannot find symbol
+import net.minecraft.client.Minecraft;
+                           ^
+  symbol:   class Minecraft
+  location: package net.minecraft.client
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:16: error: cannot find symbol
+    public static void onClientTick(Minecraft client) {
+                                    ^
+  symbol:   class Minecraft
+  location: class ClientTickHandler
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:43: error: cannot find symbol
+    private static void handleAutoScan(Minecraft client) {
+                                       ^
+  symbol:   class Minecraft
+  location: class ClientTickHandler
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:11: error: cannot find symbol
+import net.minecraft.client.Minecraft;
+                           ^
+  symbol:   class Minecraft
+  location: package net.minecraft.client
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\storage\Store.java:7: error: cannot find symbol
+import net.minecraft.client.Minecraft;
+                           ^
+  symbol:   class Minecraft
+  location: package net.minecraft.client
+C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:6: error: cannot find symbol
+import net.minecraft.client.Minecraft;
+                           ^
+  symbol:   class Minecraft
+  location: package net.minecraft.client
+9 errors
+
+> Task :compileJava FAILED
+[Incubating] Problems report is available at: file:///C:/Users/Zenny/Desktop/AdvancedNeoporiumScanner/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler output below.
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\AdvancedScanner.java:6: error: cannot find symbol
+  import net.minecraft.client.Minecraft;
+                             ^
+    symbol:   class Minecraft
+    location: package net.minecraft.client
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanController.java:3: error: cannot find symbol
+  import net.minecraft.client.Minecraft;
+                             ^
+    symbol:   class Minecraft
+    location: package net.minecraft.client
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\core\ScanTask.java:3: error: cannot find symbol
+  import net.minecraft.client.Minecraft;
+                             ^
+    symbol:   class Minecraft
+    location: package net.minecraft.client
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:8: error: cannot find symbol
+  import net.minecraft.client.Minecraft;
+                             ^
+    symbol:   class Minecraft
+    location: package net.minecraft.client
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:16: error: cannot find symbol
+      public static void onClientTick(Minecraft client) {
+                                      ^
+    symbol:   class Minecraft
+    location: class ClientTickHandler
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\ClientTickHandler.java:43: error: cannot find symbol
+      private static void handleAutoScan(Minecraft client) {
+                                         ^
+    symbol:   class Minecraft
+    location: class ClientTickHandler
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\events\KeyInputHandler.java:11: error: cannot find symbol
+  import net.minecraft.client.Minecraft;
+                             ^
+    symbol:   class Minecraft
+    location: package net.minecraft.client
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\storage\Store.java:7: error: cannot find symbol
+  import net.minecraft.client.Minecraft;
+                             ^
+    symbol:   class Minecraft
+    location: package net.minecraft.client
+  C:\Users\Zenny\Desktop\AdvancedNeoporiumScanner\src\main\java\com\emperium\neoporiumscanner\xray\XRayRenderer.java:6: error: cannot find symbol
+  import net.minecraft.client.Minecraft;
+                             ^
+    symbol:   class Minecraft
+    location: package net.minecraft.client
+  9 errors
+
+* Try:
+> Check your code and dependencies to fix the compilation error(s)
+> Run with --scan to get full insights.
+
+BUILD FAILED in 15s
+1 actionable task: 1 executed
+4:19:12 PM: Execution finished 'build'.
