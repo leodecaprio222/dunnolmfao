@@ -1,0 +1,75 @@
+package com.emperium.neoporiumscanner;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import net.fabricmc.loader.api.FabricLoader;
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+
+public class AdvancedConfig {
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final File CONFIG_FILE = new File(
+        FabricLoader.getInstance().getConfigDir().toFile(),
+        "neoporiumscanner/advanced_config.json"
+    );
+    
+    private static AdvancedConfig instance;
+    
+    // General settings
+    public boolean autoScan = false;
+    public int autoScanInterval = 20;
+    public boolean cumulativeScan = false;
+    public boolean rescanChunks = false;
+    public boolean useCache = true;
+    public int cacheTime = 30;
+    
+    // ESP settings
+    public boolean espEnabled = true;
+    public float maxRenderDistance = 64.0f;
+    public boolean fadeWithDistance = true;
+    public boolean showDistance = true;
+    
+    // Performance settings
+    public int maxBlocksToRender = 1000;
+    public boolean useLod = true;
+    public int lodDistance = 32;
+    
+    public AdvancedConfig() {
+        // Default constructor
+    }
+    
+    public static AdvancedConfig get() {
+        if (instance == null) {
+            load();
+        }
+        return instance;
+    }
+    
+    public static void load() {
+        if (CONFIG_FILE.exists()) {
+            try (FileReader reader = new FileReader(CONFIG_FILE)) {
+                instance = GSON.fromJson(reader, AdvancedConfig.class);
+            } catch (IOException e) {
+                System.err.println("[Neoporium] Failed to load advanced config: " + e.getMessage());
+                instance = new AdvancedConfig();
+            }
+        } else {
+            instance = new AdvancedConfig();
+        }
+        save();
+    }
+    
+    public static void save() {
+        File parent = CONFIG_FILE.getParentFile();
+        if (parent != null && !parent.exists()) {
+            parent.mkdirs();
+        }
+        try (FileWriter writer = new FileWriter(CONFIG_FILE)) {
+            GSON.toJson(instance, writer);
+        } catch (IOException e) {
+            System.err.println("[Neoporium] Failed to save advanced config: " + e.getMessage());
+        }
+    }
+}
