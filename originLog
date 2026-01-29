@@ -1,0 +1,151 @@
+package com.emperium.neoporiumscanner;
+
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+public class LogManager {
+    private static final SimpleDateFormat TIMESTAMP_FORMAT = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
+    
+    public static void saveScanResults(World world, AdvancedScanner.ScanProfile profile, 
+                                      Map<String, List<BlockPos>> foundBlocks, 
+                                      int totalBlocks, int chunksScanned) {
+        try {
+            MinecraftClient client = MinecraftClient.getInstance();
+            if (client == null) return;
+            
+            Path gameDir = client.runDirectory.toPath();
+            Path logDir = gameDir.resolve("neoporium_logs");
+            Files.createDirectories(logDir);
+            
+            String worldName = world.getRegistryKey().getValue().getPath();
+            String timestamp = TIMESTAMP_FORMAT.format(new Date());
+            
+            // Save CSV log (VERY SIMPLE FORMAT)
+            saveSimpleCSVLog(logDir, worldName, timestamp, foundBlocks);
+            
+            // Save detailed log
+            saveDetailedLog(logDir, worldName, timestamp, profile, foundBlocks, totalBlocks, chunksScanned);
+            
+        } catch (IOException e) {
+            System.err.println("[Neoporium] Failed to save logs: " + e.getMessage());
+        }
+    }
+    
+    private static void saveSimpleCSVLog(Path logDir, String worldName, String timestamp,
+                                        Map<String, List<BlockPos>> foundBlocks) throws IOException {
+        String fileName = String.format("scan_%s_%s.csv", worldName, timestamp);
+        Path csvFile = logDir.resolve(fileName);
+        
+        StringBuilder csv = new StringBuilder();
+        // VERY SIMPLE HEADER: X Y Z BlockType
+        csv.append("X Y Z BlockType\n");
+        
+        for (Map.Entry<String, List<BlockPos>> entry : foundBlocks.entrySet()) {
+            String blockType = formatBlockNameForCSV(entry.getKey());
+            for (BlockPos pos : entry.getValue()) {
+                // Simple space-separated format: X Y Z BlockType
+                csv.append(String.format("%d %d %d %s%n",
+                    pos.getX(), pos.getY(), pos.getZ(), blockType));
+            }
+        }
+        
+        Files.writeString(csvFile, csv.toString(),
+            StandardOpenOption.CREATE,
+            StandardOpenOption.TRUNCATE_EXISTING);
+        
+        System.out.println("[Neoporium] Saved simple CSV log: " + fileName);
+        System.out.println("[Neoporium] Format: X Y Z BlockType (space separated)");
+    }
+    
+    private static String formatBlockNameForCSV(String blockName) {
+        if (blockName == null || blockName.isEmpty()) {
+            return "Unknown";
+        }
+        
+        // Convert to proper case: First letter uppercase, rest lowercase
+        String[] words = blockName.split(" ");
+        StringBuilder result = new StringBuilder();
+        
+        for (int i = 0; i < words.length; i++) {
+            if (!words[i].isEmpty()) {
+                result.append(Character.toUpperCase(words[i].charAt(0)))
+                      .append(words[i].substring(1).toLowerCase());
+                if (i < words.length - 1) {
+                    result.append(" ");
+                }
+            }
+        }
+        
+        return result.toString();
+    }
+    
+    private static void saveDetailedLog(Path logDir, String worldName, String timestamp,
+                                       AdvancedScanner.ScanProfile profile,
+                                       Map<String, List<BlockPos>> foundBlocks,
+                                       int totalBlocks, int chunksScanned) throws IOException {
+        String fileName = String.format("scan_detailed_%s_%s.txt", 
+            worldName, timestamp);
+        
+        Path logFile = logDir.resolve(fileName);
+        
+        StringBuilder content = new StringBuilder();
+        content.append("=== Advanced Neoporium Scanner Report ===\n");
+        content.append("Timestamp: ").append(TIME_FORMAT.format(new Date())).append("\n");
+        content.append("Date: ").append(DATE_FORMAT.format(new Date())).append("\n");
+        content.append("World: ").append(worldName).append("\n");
+        content.append("Profile: ").append(profile.name).append("\n\n");
+        
+        content.append("=== Scan Configuration ===\n");
+        content.append(String.format("Target Blocks (%d):%n", profile.targetBlocks.size()));
+        for (String block : profile.targetBlocks) {
+            content.append("  - ").append(block).append("\n");
+        }
+        content.append(String.format("Y Range: %d to %d%n", profile.minY, profile.maxY));
+        content.append(String.format("Scan Radius: %d chunks%n", profile.scanRadius));
+        content.append(String.format("Chunks Scanned: %d%n", chunksScanned));
+        content.append(String.format("Total Blocks Found: %d%n", totalBlocks));
+        content.append("\n");
+        
+        content.append("=== Block Statistics ===\n");
+        for (Map.Entry<String, List<BlockPos>> entry : foundBlocks.entrySet()) {
+            content.append(String.format("%s: %d blocks%n", 
+                formatBlockNameForCSV(entry.getKey()), entry.getValue().size()));
+        }
+        content.append("\n");
+        
+        content.append("=== Coordinates ===\n\n");
+        for (Map.Entry<String, List<BlockPos>> entry : foundBlocks.entrySet()) {
+            content.append(formatBlockNameForCSV(entry.getKey())).append(":\n");
+            List<BlockPos> positions = entry.getValue();
+            positions.sort((a, b) -> {
+                if (a.getY() != b.getY()) return Integer.compare(a.getY(), b.getY());
+                if (a.getX() != b.getX()) return Integer.compare(a.getX(), b.getX());
+                return Integer.compare(a.getZ(), b.getZ());
+            });
+            
+            for (BlockPos pos : positions) {
+                content.append(String.format("  X: %d, Y: %d, Z: %d%n", 
+                    pos.getX(), pos.getY(), pos.getZ()));
+            }
+            content.append("\n");
+        }
+        
+        Files.writeString(logFile, content.toString(),
+            StandardOpenOption.CREATE,
+            StandardOpenOption.TRUNCATE_EXISTING);
+        
+        System.out.println("[Neoporium] Saved detailed log: " + fileName);
+    }
+}
