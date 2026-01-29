@@ -1,0 +1,50 @@
+neoporiumscanner/
+├── src/main/java/com/emperium/neoporiumscanner/
+│   ├── NeoporiumScanner.java              # done
+│   ├── config/
+│   │   ├── AdvancedConfig.java            # done
+│   │   ├── StateSettings.java             # done
+│   │   └── ConfigManager.java             # not added yet
+│   ├── core/
+│   │   ├── AdvancedScanner.java           # done
+│   │   ├── ScanProfile.java              # done
+│   │   ├── ScanController.java           # done
+│   │   ├── ScanTask.java                 # not added yet
+│   │   ├── LogManager.java               # done
+│   │   └── BlockValidator.java           # not added
+│   ├── gui/
+│   │   ├── AdvancedGuiScreen.java        # done
+│   │   ├── BlockSelectionScreen.java     # not added
+│   │   ├── XRayConfigScreen.java         # not added
+│   │   ├── LogManagerScreen.java         # not added
+│   │   └── QuickAccessScreen.java        # not added
+│   ├── xray/
+│   │   ├── XRayRenderer.java             # done
+│   │   ├── RenderOutlines.java           # not added
+│   │   ├── BasicColor.java               # done
+│   │   └── XRayCache.java                # not added
+│   ├── storage/
+│   │   ├── BlockStore.java               # not added
+│   │   ├── SettingsStore.java            # not added
+│   │   ├── ProfileStore.java             # not added
+│   │   └── Store.java                    # not added
+│   ├── cache/
+│   │   ├── BlockSearchCache.java         # not added
+│   │   └── ChunkCache.java               # not added
+│   ├── mixins/
+│   │   └── MixinClientPlayNetworkHandler.java # not added
+│   ├── events/
+│   │   ├── ClientTickHandler.java        # not added
+│   │   ├── WorldRenderHandler.java       # not added
+│   │   └── KeyInputHandler.java          # not added
+│   └── utils/
+│       ├── BlockUtils.java               # not added
+│       ├── PositionUtils.java            # not added
+│       ├── ColorUtils.java               # not added
+│       └── FileUtils.java                # not added
+├── src/main/resources/
+│   ├── fabric.mod.json                   # done
+│   ├── neoporiumscanner.mixins.json      # done
+│   └── assets/neoporiumscanner/
+│       └── lang/
+│           └── en_us.json                # done
